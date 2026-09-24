@@ -3,8 +3,7 @@ import { createContext, useState } from "react";
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
 
-const API_URL = "http://localhost:5000/api/auth";
-
+const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("miki_user");
