@@ -3,6 +3,7 @@ import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./components/ProtectedRoute";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import CartPage from "./pages/CartPage";
@@ -47,7 +48,14 @@ function App() {
         <Route path="/offers" element={<OffersPage />} />
         <Route path="/stores" element={<StoreLocatorPage />} />
         <Route path="/info/:slug" element={<InfoPage />} />
-        <Route path="/account" element={<AccountLayout />}>
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <AccountLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<DashboardPage />} />
           <Route path="orders" element={<OrdersPage />} />
           <Route path="orders/:orderId" element={<OrderDetailPage />} />
